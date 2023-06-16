@@ -1,0 +1,14 @@
+<%-include('../partials/head',{
+    title:"proveedores",
+    css:""
+})%>
+<body>
+
+    <% proveedores.forEach(item => { %>
+        <div>
+            <ul>
+                <li><%=item.nombre%></li>
+            </ul>
+        </div>
+    <% }) %>
+</body>

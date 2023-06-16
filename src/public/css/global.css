@@ -1,0 +1,6 @@
+.bg-hover-dark:hover, .bg-hover-dark a:hover{
+    background-color: #333;
+    color: #fff;
+    border-radius: 10px;
+}
+

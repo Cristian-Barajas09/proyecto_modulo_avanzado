@@ -1,0 +1,55 @@
+<%-include('../partials/head',{
+    title:"Crear producto",
+    css:""
+})%>
+
+<body>
+    <header>
+        <%-include('../partials/navbar')  %>
+    </header>
+    <main>
+        <div class="container col-4">
+            <div class="row">
+                <form action="/products/" method="post">
+                    <div class="mb-3 col-12">
+                        <label for="formName" class="form-label">nombre</label>
+                        <input type="text" name="nombre" id="formName" class="form-control">
+                    </div>
+                    <div class="mb-3 col-12">
+                        <label for="formProv" class="form-label">proveedor</label>
+                        <select name="proveedor" id="formProv" class="form-select">
+                            <option>Elige el proveedor</option>
+                            <% proveedores.forEach(item=> { %>
+                                <option value="<%=item.id_proveedor%>"><%=item.nombre%></option>
+                            <% }) %>
+                        </select>
+                    </div>
+                    <div class="mb-3 col-12">
+                        <label for="formPrecio" class="form-label">precio</label>
+                            <input type="number" id="formPrecio" name="precio" class="form-control">
+                    </div>
+                    <div class="mb-3 col-12">
+                        <label for="formCantidad" class="form-label">cantidad</label>
+                            <input type="text" name="cantidad" class="form-control" id="formCantidad">
+                    </div>
+                    <div class="mb-3 col-12">
+                        <label for="formCategoria" class="form-label">categoria</label>
+                        <select name="categoria" class="form-select" id="formCategoria">
+                            <option>Elige la categoria del producto</option>
+                            <% categorias.forEach(item=> { %>
+                                <option value="<%=item.id_categoria%>"><%=item.nombre%></option>
+                            <% }) %>
+                        </select>
+                    </div>
+                    <div class="mb-3 col-12">
+                        <button class="btn btn-primary form-control">guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main
+
+
+<%-include('../partials/footer',{
+    js:[]
+})%>

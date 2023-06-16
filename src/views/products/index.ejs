@@ -1,0 +1,24 @@
+<%-include("../partials/head",{
+    title:"Productos",
+    css:""
+})%>
+<body>
+    <header>
+        <%- include("../partials/navbar") %>
+    </header>
+    <div class="container ">
+        <% products.forEach(item=>{ %>
+                <div class="card m-2 d-inline-block" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="/products/<%=item.id_producto%>" class="text-decoration-none text-primary"><%=item.nombre%></a></h5>
+                        <p class="card-text">Precio: $<%= item.precio %></p>
+                        <p class="card-text">Cantidad: <%= item.cantidad %></p>
+                        <button data-id="<%=item.id_producto %>" id="delete" type="submit" class="btn btn-danger">Borrar</button>
+                        <a href="/products/update/<%=item.id_producto%>" class="btn btn-secondary">actualizar</a>
+                    </div>
+                </div>
+        <%})%>
+    </div>
+    <%-include("../partials/footer",{
+        js:["products"]
+    })%>

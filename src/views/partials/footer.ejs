@@ -1,0 +1,9 @@
+        <script src="/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/jquery.js"></script>
+        <%if(js !== []){%>
+            <%js.forEach(item => {%>
+                <script src="/js/<%=item%>.js"></script>
+            <%})%>
+        <%}%>
+    </body>
+</html>
