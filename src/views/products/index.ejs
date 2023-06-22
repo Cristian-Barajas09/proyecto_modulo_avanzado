@@ -4,21 +4,32 @@
 })%>
 <body>
     <header>
-        <%- include("../partials/navbar") %>
+        <%- include("../partials/navbar2") %>
     </header>
-    <div class="container ">
-        <% products.forEach(item=>{ %>
-                <div class="card m-2 d-inline-block" style="width: 18rem;">
+    <%if(products.length){%>
+        <div class="container ">
+            <% products.forEach(item=>{ %>
+                <div class="card m-2 d-inline-block hover-shadow " style="width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="/products/<%=item.id_producto%>" class="text-decoration-none text-primary"><%=item.nombre%></a></h5>
+                        <h5 class="card-title "><a href="/productos/producto/<%=item.id_producto%>" class="text-decoration-none text-success"><%=item.nombre%></a></h5>
                         <p class="card-text">Precio: $<%= item.precio %></p>
                         <p class="card-text">Cantidad: <%= item.cantidad %></p>
-                        <button data-id="<%=item.id_producto %>" id="delete" type="submit" class="btn btn-danger">Borrar</button>
-                        <a href="/products/update/<%=item.id_producto%>" class="btn btn-secondary">actualizar</a>
+                        <a href="/productos/update/<%=item.id_producto%>" class="btn btn-secondary">actualizar</a>
+                        <%if(user[0].tipo_usuario == "admin"){%>
+                            <button data-id="<%=item.id_producto %>" id="delete" type="submit" class="btn btn-danger">Borrar</button>
+                        <%}%>
                     </div>
                 </div>
-        <%})%>
-    </div>
+            <%})%>
+        </div>
+    <%} else {%>
+        <div class="container col-4 bg-primary mt-3 p-2 rounded">
+            <div class="text-center text-white">
+                <h3 >No hay productos registrados</h3>
+                <p>agrega uno <a href="/productos/create" class="btn btn-success">agregar</a></p>
+            </div>
+        </div>
+    <%}%>
     <%-include("../partials/footer",{
         js:["products"]
     })%>

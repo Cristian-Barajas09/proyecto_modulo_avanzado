@@ -1,3 +1,4 @@
+-- Active: 1686681943139@@127.0.0.1@3306@productos
 CREATE DATABASE productos;
 
 USE productos;
@@ -15,3 +16,22 @@ BEGIN
 END //
 
 DELIMITER ;
+
+
+CREATE TABLE usuarios(
+    id_usuario INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50),
+    lastname VARCHAR(50),
+    email VARCHAR(100) UNIQUE,
+    birthdate DATE,
+    telefono VARCHAR(15),
+    password VARCHAR(200) NOT NULL,
+    tipo_usuario SET('admin','user','empleado') DEFAULT 'user'
+);
+
+
+SELECT * FROM usuarios;
+SELECT * FROM productos;
+
+
+DROP TABLE usuarios;

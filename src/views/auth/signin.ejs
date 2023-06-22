@@ -1,0 +1,41 @@
+<%-include('../partials/head',{
+    title:"ingresar",
+    css:"ingresar"
+})%>
+
+<header>
+    <%-include('../partials/navbar')%>
+</header>
+
+<main class="pt-5">
+    <div class="container mb-3 col-4">
+        <%- include('../partials/message.ejs') %>
+    </div>
+    <div class="container col-4 p-3 ">
+        <div class="row">
+            <form action="/ingresar" method="post">
+                <div class="mb-3 col-12">
+                    <h3 class="text-center">
+                        Ingresar
+                    </h1>
+                </div>
+                <div class="mb-3 col-12">
+                    <p class="email"> Ingrese su Email </p>
+                    <input type="email" name="email" class="form-control"/ placeholder="pedroperez@gmail.com">
+                </div>
+                <div class="mb-3 col-12">
+                    <p class="password"> Ingrese su Password </p>
+                    <input type="password" name="password" class="form-control"/ placeholder="******">
+                </div>
+                <div class="mb-3 col-12">
+                    <input type="submit" value="Ingresar" class="form-control btn btn-primary"/>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</main>
+
+<%-include('../partials/footer',{
+    js:[]
+})%>

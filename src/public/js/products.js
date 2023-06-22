@@ -3,11 +3,11 @@ $("#delete").click(function (e) {
     let idProduct = $(this).data('id');
     $.ajax({
         type: "DELETE",
-        url: `http://localhost:3000/products/${idProduct}`,
+        url: `http://localhost:3000/productos/producto/${idProduct}`,
     })
     .done(response =>{
         console.log(response);
-        location.href = "http://localhost:3000/products";
+        location.href = "http://localhost:3000/productos";
     })
 });
 $("#update").click(function (e) {
@@ -30,12 +30,12 @@ $("#update").click(function (e) {
     console.log(idProduct)
     $.ajax({
         type:"PUT",
-        url: `http://localhost:3000/products/${idProduct}`,
+        url: `http://localhost:3000/productos/producto/${idProduct}`,
         "content-type":"application/json",
         data:updateProduct
     })
     .done(res => {
         console.log(res);
-        location.href = "http://localhost:3000/products";
+        location.href = "http://localhost:3000/productos";
     })
 });

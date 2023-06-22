@@ -1,11 +1,22 @@
 import { parse } from "dotenv";
 import { pool } from "../config/mysql.connector.js";
-import { productMethod } from "../lib/products.js";
+import { actions} from "../lib/actions.lib.js";
 export const products = {};
 
 products.getProduct = async(req,res)=>{
+    let hayProductos = false;
     const [result] = await  pool.query("SELECT * FROM productos")
-    return res.render("products/index",{products:result})
+    console.log(result == [])
+
+    if(result == []) {
+        console.log("entre")
+        hayProductos = false
+    } else {
+        hayProductos = true
+    }
+
+
+    return res.render("products/index",{products:result,hayProductos})
 }
 
 products.getProductById = async(req,res)=>{
@@ -28,9 +39,10 @@ products.createProduct = async (req,res)=> {
             id_categoria:parseInt(categoria)
         }
         await pool.query("INSERT INTO productos SET ?",[newProduct])
-        res.redirect("/products").status(200)
+        res.redirect("/productos").status(200)
     } catch(err) {
         console.log(err)
+
     }
 }
 products.updateProduct = async(req,res)=>{
@@ -54,6 +66,7 @@ products.updateProduct = async(req,res)=>{
 
 products.deleteProduct = async(req,res)=> {
     const { id } = req.params;
+
     await pool.query("DELETE FROM productos WHERE id_producto = ?",[id]);
     res.json({response:"eliminado"})
 }

@@ -3,12 +3,21 @@
     css:""
 })%>
 <body>
-
+    <header>
+        <%-include('../partials/navbar2')%>
+    </header>
     <% proveedores.forEach(item => { %>
-        <div>
-            <ul>
-                <li><%=item.nombre%></li>
-            </ul>
+        <div class="card m-2 d-inline-block hover-shadow " style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title "><a href="/productos/producto/<%=item.id_producto%>" class="text-decoration-none text-success"><%=item.nombre%></a></h5>
+                <%if(user[0].tipo_usuario == "admin"){%>
+                    <button data-id="<%=item.id_proveedor %>" id="delete" type="submit" class="btn btn-danger">Borrar</button>
+                <%}%>
+                <%= item.id_proveedor%>
+            </div>
         </div>
     <% }) %>
-</body>
+
+<%-include("../partials/footer",{
+    js:["proveedores"]
+})%>

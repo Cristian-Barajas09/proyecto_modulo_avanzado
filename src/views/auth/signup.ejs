@@ -1,0 +1,67 @@
+<%- include('../partials/head',{
+    title:"registrarse",
+    css:"registro"
+}) %>
+<body>
+    <header>
+        <%-include('../partials/navbar')%>
+    </header>
+    <main>
+        <div class="container col-4">
+            <%-include("../partials/message")%>
+        </div>
+        <div class="caja_1 container col-4">
+            <div class="row">
+                <form action="/registrarse" method="post">
+                    <div class="mb-3 col-12">
+                        <p class="titulo_1 text-center">Registrarse</p>
+                    </div>
+                    <div class="mb-3 col-12 d-inline-block">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" name="name">
+                    </div>
+                    <div class="mb-3 col-12 d-inline-block">
+                        <label for="apellido">apellido</label>
+                        <input type="text" class="form-control" name="lastname">
+                    </div>
+
+                    <div class="mb-3 col-12">
+                        <label for="birthdate">fecha de nacimiento</label>
+                        <input type="date" class="form-control" name="birthdate">
+                    </div>
+
+                    <div class="mb-3 col-12">
+                        <label for="email">email</label>
+                        <input type="email" class="form-control" name="email">
+                    </div>
+
+                    <div class="mb-3 col-12">
+                        <label for="telefono">telefono</label>
+                        <input type="text" class="form-control" name="telefono">
+                    </div>
+
+                    <div class="mb-3 col-12">
+                        <label for="password">contraseña</label>
+                        <input type="password" class="form-control" name="password">
+                        <button id="mostrarPass"><i class="fa fa-eye"></i></button>
+                    </div>
+
+                    <div class="mb-3 col-12">
+                        <label for="confirm">confirmar contraseña</label>
+                        <input type="password" class="form-control" name="confirm">
+                        <button id="mostrarConfirm"><i class="fa fa-eye"></i></button>
+                    </div>
+
+                    <div class="mb-3 col-12">
+                        <input type="submit" class="form-control btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+
+
+<%-include('../partials/footer.ejs',{
+    js:[]
+})%>
