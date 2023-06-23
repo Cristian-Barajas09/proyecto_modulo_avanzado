@@ -14,9 +14,9 @@ import products from './routes/products.routes.js';
 import prov from './routes/proveedores.routes.js';
 import auth from './routes/auth.routes.js';
 import user from './routes/user.routes.js';
+import admin from './routes/admin.routes.js';
 //lib
 import validate from './lib/auth.lib.js';
-
 
 
 const app = express();
@@ -25,6 +25,11 @@ const __dirname = resolve()
 app.set("port", process.env.PORT || 3000)
 app.set("views", join(__dirname, "src/views"))
 app.set("view engine", ".ejs");
+
+
+
+
+
 // middlewares
 
 
@@ -50,7 +55,7 @@ app.use((req, res, next) => {
         app.locals.user = validate.existsUser(req)
     }  else {
         app.locals.user = [];
-
+        console.log(app.locals.user.length > 0)
     }
 
 
@@ -67,7 +72,7 @@ app.use(prov)
 app.use(auth)
 app.use(user)
 app.use(express.static(join(__dirname, "src/public")))
-
+app.use(admin)
 app.use((req, res) => res.render("errors/404.ejs", { user: {} }))
 
 app.listen(app.get("port"), () => {

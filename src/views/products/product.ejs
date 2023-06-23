@@ -1,19 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<%-include('../partials/head',{
+    title:product[0].nombre,
+    css:""
+})%>
 <body>
-    <%product.forEach(item=>{%>
-        <div>
-            <%=item.nombre%>
-            <%= item.precio %>
-            <%=item.cantidad%>
-        </div>
-    <%})%>
+    <header>
+        <%-include('../partials/navbar')%>
+    </header>
+    <div class="container col-md-12 ">
+        <%product.forEach(item=>{%>
+            <ul class="mt-2 p-2 shadow">
+                <li class="list-group-item">Nombre: <h3><%=item.nombre%></h3></li>
+                <li class="list-group-item">precio: $ <%= item.precio %></li>
+                <li class="list-group-item">cantidad: <%=item.cantidad%></li>
+                <li class="list-group-item">proveedor: <%= proveedor[0].nombre %></li>
+                <a href="/productos/update/<%=item.id_producto%>" class="btn btn-secondary">actualizar</a>
+                <%if(user[0].tipo_usuario == "admin"){%>
+                    <button data-id="<%=item.id_producto %>" id="delete" type="submit" class="btn btn-danger">Borrar</button>
+                <%}%>
+            </ul>
+        <%})%>
+    </div>
     <%-include("../partials/footer",{
-        js:[]
+        js:["products"]
     })%>

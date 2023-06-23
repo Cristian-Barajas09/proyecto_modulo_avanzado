@@ -7,10 +7,10 @@
         <%-include('../partials/navbar')%>
     </header>
     <main>
-        <div class="container col-4">
+        <div class="container col-md-4">
             <%-include("../partials/message")%>
         </div>
-        <div class="caja_1 container col-4">
+        <div class=" container col-md-4">
             <div class="row">
                 <form action="/registrarse" method="post">
                     <div class="mb-3 col-12">
@@ -43,13 +43,13 @@
                     <div class="mb-3 col-12">
                         <label for="password">contraseña</label>
                         <input type="password" class="form-control" name="password">
-                        <button id="mostrarPass"><i class="fa fa-eye"></i></button>
+                        <button id="mostrarPass" class="btn"><i class="fa fa-eye"></i></button>
                     </div>
 
                     <div class="mb-3 col-12">
                         <label for="confirm">confirmar contraseña</label>
                         <input type="password" class="form-control" name="confirm">
-                        <button id="mostrarConfirm"><i class="fa fa-eye"></i></button>
+                        <button id="mostrarConfirm" class="btn"><i class="fa fa-eye"></i></button>
                     </div>
 
                     <div class="mb-3 col-12">

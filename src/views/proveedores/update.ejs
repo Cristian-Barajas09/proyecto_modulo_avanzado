@@ -1,0 +1,38 @@
+<%-include('../partials/head',{
+    title:"Proveedor: " + proveedor[0].nombre,
+    css:""
+})%>
+<body>
+    <header>
+        <%-include('../partials/navbar')%>
+    </header>
+    <main>
+        <div class="container col-md-12">
+            <div class="row">
+                <form>
+                    <div class="mb-3 col-12">
+                        <label>nombre</label>
+                        <input type="text" class="form-control" id="nombre" value="<%=proveedor[0].nombre%>">
+                    </div>
+                    <div class="mb-3 col-12">
+                        <label for="">categoria</label>
+                        <select class="form-select" id="categoria">
+                            <%if(categoria[0].id_categoria){%>
+                                <option value="<%=categoria[0].id_categoria%>"><%=categoria[0].nombre%></option>
+                                <% categorias.forEach(item => {%>
+                                    <option value="<%=item.id_categoria%>"><%=item.nombre%></option>
+                                <%})%>
+                            <%}%>
+                        </select>
+                    </div>
+                    <div class="mb-3 col-12">
+                            <button data-id="<%=proveedor[0].id_proveedor%>" id="update" class="btn btn-success form-control">actualizar</button>
+                    </div>
+            </div>
+            </form>
+        </div>
+    </main>
+
+<%-include('../partials/footer',{
+    js:["proveedores"]
+})%>

@@ -1,0 +1,28 @@
+<%-include('../partials/head',{
+    title:"proveedores",
+    css:""
+})%>
+<body>
+    <header>
+        <%-include('../partials/navbar')%>
+    </header>
+    <div class="container col-md-12">
+        <% proveedor.forEach(item => { %>
+            <ul class="shadow p-2 mt-2">
+                <li class="list-group-item">
+                    <h5><%=item.nombre%></a></h5>
+                </li>
+
+                <a class="btn btn-warning" href="/proveedores/update/<%=item.id_proveedor%>">actualizar</a>
+
+                    <%if(user[0].tipo_usuario == "admin"){%>
+                        <button data-id="<%=item.id_proveedor %>" id="delete" type="submit" class="btn btn-danger">Borrar</button>
+                    <%}%>
+
+            </ul>
+        <% }) %>
+    </div>
+
+<%-include("../partials/footer",{
+    js:["proveedores"]
+})%>

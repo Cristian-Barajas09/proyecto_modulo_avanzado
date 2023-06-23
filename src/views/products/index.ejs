@@ -4,7 +4,7 @@
 })%>
 <body>
     <header>
-        <%- include("../partials/navbar2") %>
+        <%- include("../partials/navbar") %>
     </header>
     <%if(products.length){%>
         <div class="container ">
@@ -14,22 +14,26 @@
                         <h5 class="card-title "><a href="/productos/producto/<%=item.id_producto%>" class="text-decoration-none text-success"><%=item.nombre%></a></h5>
                         <p class="card-text">Precio: $<%= item.precio %></p>
                         <p class="card-text">Cantidad: <%= item.cantidad %></p>
-                        <a href="/productos/update/<%=item.id_producto%>" class="btn btn-secondary">actualizar</a>
-                        <%if(user[0].tipo_usuario == "admin"){%>
-                            <button data-id="<%=item.id_producto %>" id="delete" type="submit" class="btn btn-danger">Borrar</button>
-                        <%}%>
                     </div>
                 </div>
             <%})%>
         </div>
     <%} else {%>
-        <div class="container col-4 bg-primary mt-3 p-2 rounded">
-            <div class="text-center text-white">
-                <h3 >No hay productos registrados</h3>
-                <p>agrega uno <a href="/productos/create" class="btn btn-success">agregar</a></p>
+        <%if(user[0].tipo_usuario == 'user'){%>
+            <div class="container col-md-4 bg-primary mt-3 p-2 rounded">
+                <div class="text-center text-white">
+                    <h3 >No hay productos registrados</h3>
+                </div>
             </div>
-        </div>
+        <%}else {%>
+            <div class="container col-md-4 bg-primary mt-3 p-2 rounded">
+                <div class="text-center text-white">
+                    <h3 >No hay productos registrados</h3>
+                    <p>agrega uno <a href="/productos/create" class="btn btn-success">agregar</a></p>
+                </div>
+            </div>
+        <%}%>
     <%}%>
     <%-include("../partials/footer",{
-        js:["products"]
+        js:[]
     })%>
