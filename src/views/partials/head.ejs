@@ -6,10 +6,12 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/global.css">
+
+
     <%if(css !== []){%>
         <%css.forEach(item => {%>
             <link rel="stylesheet" href="/css/<%=css%>.css">
         <%})%>
     <%}%>
-    
+
 </head>

@@ -4,16 +4,12 @@
 })%>
 <body>
     <header>
-        <%-include('../partials/navbar2')%>
+        <%-include('../partials/navbar')%>
     </header>
     <% proveedores.forEach(item => { %>
         <div class="card m-2 d-inline-block hover-shadow " style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title "><a href="/productos/producto/<%=item.id_producto%>" class="text-decoration-none text-success"><%=item.nombre%></a></h5>
-                <%if(user[0].tipo_usuario == "admin"){%>
-                    <button data-id="<%=item.id_proveedor %>" id="delete" type="submit" class="btn btn-danger">Borrar</button>
-                <%}%>
-                <%= item.id_proveedor%>
+                <h5 class="card-title "><a href="/proveedores/proveedor/<%=item.id_proveedor%>" class="text-decoration-none text-success"><%=item.nombre%></a></h5>
             </div>
         </div>
     <% }) %>

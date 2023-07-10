@@ -13,7 +13,7 @@ router.route("/proveedores/proveedor/:id")
 
 router.get("/proveedores/create",prov.renderCreate)
 
-router.get("/proveedores/update")
+router.get("/proveedores/update/:id",prov.renderUpdate)
 
 
 

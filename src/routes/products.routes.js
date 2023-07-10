@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { products } from "../controller/products.controller.js";
+
 const router = Router()
 
 router.route("/productos")

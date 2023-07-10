@@ -6,10 +6,10 @@ export const products = {};
 products.getProduct = async(req,res)=>{
     let hayProductos = false;
     const [result] = await  pool.query("SELECT * FROM productos")
-    console.log(result == [])
+
 
     if(result == []) {
-        console.log("entre")
+
         hayProductos = false
     } else {
         hayProductos = true
@@ -22,8 +22,10 @@ products.getProduct = async(req,res)=>{
 products.getProductById = async(req,res)=>{
     const id = parseInt(req.params.id);
     const [result] = await pool.query("SELECT * FROM  productos WHERE id_producto = ?",[id]);
+    const [proveedor] = await pool.query("SELECT * FROM proveedores WHERE id_proveedor = ?",[result[0].id_proveedor]);
+
     if(!result[0]) return res.json({message:"producto no encontrado"}).status(404);
-    res.render("products/product",{product:result});
+    res.render("products/product",{product:result,proveedor});
 }
 
 products.createProduct = async (req,res)=> {
@@ -81,7 +83,7 @@ products.renderUpdateProducts = async(req,res)=>{
     const { id } = req.params;
 
 
-    const [product,proveedor,categoria,proveedores,categorias] = await productMethod.update(id)
+    const [product,proveedor,categoria,proveedores,categorias] = await actions.update(id)
 
     res.render('products/update',{product,proveedores,categorias,proveedor,categoria})
 }

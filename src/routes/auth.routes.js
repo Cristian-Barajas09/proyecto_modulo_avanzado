@@ -1,18 +1,18 @@
 import { Router } from "express";
 import { auth } from "../controller/auth.controller.js";
-
+import validate from "../lib/auth.lib.js";
 
 const router = Router()
 
 
 router.route("/ingresar")
-    .get(auth.signin)
-    .post(auth.signinValidate)
+    .get(validate.inactivo,auth.signin)
+    .post(validate.inactivo,auth.signinValidate)
 
 router.route("/registrarse")
-    .get((req,res)=> {
+    .get(validate.inactivo,(req,res)=> {
         res.render("auth/signup")
     })
-    .post(auth.signupValidate)
+    .post(validate.inactivo,auth.signupValidate)
 
 export default router;
