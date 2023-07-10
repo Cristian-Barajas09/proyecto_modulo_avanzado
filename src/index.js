@@ -1,6 +1,6 @@
 //  modules
-import { config } from 'dotenv';
-config();
+import dotenv from 'dotenv';
+dotenv.config();
 import express from 'express';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
@@ -17,12 +17,14 @@ import user from './routes/user.routes.js';
 import admin from './routes/admin.routes.js';
 //lib
 import validate from './lib/auth.lib.js';
+import categorias from './routes/categorias.routes.js';
+
 
 
 const app = express();
 const __dirname = resolve()
 //settings
-app.set("port", process.env.PORT || 3000)
+app.set("port", process.env.PORT)
 app.set("views", join(__dirname, "src/views"))
 app.set("view engine", ".ejs");
 
@@ -71,8 +73,10 @@ app.use(products);
 app.use(prov)
 app.use(auth)
 app.use(user)
-app.use(express.static(join(__dirname, "src/public")))
 app.use(admin)
+app.use(categorias)
+app.use(express.static(join(__dirname, "src/public")))
+
 app.use((req, res) => res.render("errors/404.ejs", { user: {} }))
 
 app.listen(app.get("port"), () => {

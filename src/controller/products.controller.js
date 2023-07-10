@@ -6,10 +6,10 @@ export const products = {};
 products.getProduct = async(req,res)=>{
     let hayProductos = false;
     const [result] = await  pool.query("SELECT * FROM productos")
-    console.log(result == [])
+
 
     if(result == []) {
-        console.log("entre")
+
         hayProductos = false
     } else {
         hayProductos = true
