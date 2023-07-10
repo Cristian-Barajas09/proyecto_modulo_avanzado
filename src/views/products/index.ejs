@@ -1,6 +1,6 @@
 <%-include("../partials/head",{
     title:"Productos",
-    css:""
+    css:[]
 })%>
 <body>
     <header>
@@ -16,7 +16,7 @@
                         <p class="card-text">Cantidad: <%= item.cantidad %></p>
                     </div>
                 </div>
-            <%})%>
+            <% }) %>
         </div>
     <%} else {%>
         <%if(user[0].tipo_usuario == 'user'){%>

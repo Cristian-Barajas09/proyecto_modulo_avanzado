@@ -1,4 +1,3 @@
-import { parse } from "dotenv";
 import { pool } from "../config/mysql.connector.js";
 import { actions} from "../lib/actions.lib.js";
 export const products = {};
@@ -86,4 +85,35 @@ products.renderUpdateProducts = async(req,res)=>{
     const [product,proveedor,categoria,proveedores,categorias] = await actions.update(id)
 
     res.render('products/update',{product,proveedores,categorias,proveedor,categoria})
+}
+
+
+products.image = async (req, res) => {
+    const user = profile.sendToSocket()
+    console.log(user);
+    const savePublic = async () => {
+        const imgUrl = helpers.randomNumber();
+        const images = await sql.query('SELECT * FROM users WHERE image = ?', [imgUrl])
+        if (images > 0) {
+            savePublic();
+        } else {
+            const imageTempPath = req.file.path
+            const ext = path.extname(req.file.originalname).toLowerCase()
+            const targetPath = path.resolve(`src/public/upload/${imgUrl}${ext}`)
+            if (ext === '.png' || ext === '.jpg' || ext === '.jpeg' || ext === '.gif') {
+                try {
+                    fs.moveSync(imageTempPath, targetPath);
+                    const newImage = imgUrl + ext
+                    const imageSaved = await sql.query('UPDATE users SET image = ? WHERE id = ?', [newImage,user.id]);
+                    res.redirect('/profile')
+                } catch(err){
+                    console.log("error:",err);
+                }
+            } else {
+                fs.unlinkSync(imageTempPath)
+                res.status(500).json({ error: 'ese archivo no es una imagen' })
+            }
+        };
+    };
+    savePublic()
 }

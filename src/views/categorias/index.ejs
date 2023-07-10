@@ -1,0 +1,37 @@
+<%-include("../partials/head",{
+    title:"Categorias",
+    css:[]
+})%>
+<body>
+    <header>
+        <%- include("../partials/navbar") %>
+    </header>
+    <%if(categorias.length){%>
+        <div class="container ">
+            <% categorias.forEach(item=>{ %>
+                <div class="card m-2 d-inline-block hover-shadow " style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title "><a href="/categorias/categoria/<%=item.id_categoria%>" class="text-decoration-none text-success"><%=item.nombre%></a></h5>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    <%} else {%>
+        <%if(user[0].tipo_usuario == 'user'){%>
+            <div class="container col-md-4 bg-primary mt-3 p-2 rounded">
+                <div class="text-center text-white">
+                    <h3 >No hay Categorias registradas</h3>
+                </div>
+            </div>
+        <%}else {%>
+            <div class="container col-md-4 bg-primary mt-3 p-2 rounded">
+                <div class="text-center text-white">
+                    <h3 >No hay Categorias registrados</h3>
+                    <p>agrega uno <a href="/categorias/create" class="btn btn-success">agregar</a></p>
+                </div>
+            </div>
+        <%}%>
+    <%}%>
+    <%-include("../partials/footer",{
+        js:[]
+    })%>

@@ -10,6 +10,6 @@ admin.index =async(req,res)=>{
 admin.edit = async(req,res) => {
     const { id } = req.params;
     const [ [  user  ] ] = await pool.query("CALL getUser(?);",[id]);
-
+    console.log(user);
     res.render("admin/edit",{user});
 }
