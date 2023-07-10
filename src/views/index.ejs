@@ -1,14 +1,200 @@
 <%-include("partials/head",{
     title:"home",
-    css:""
+    css:["index"]
 })%>
 <body>
     <header>
             <%-include("partials/navbar")%>
     </header>
 
+    <main>
+
+        <div class="slider">
+            <div class="myslide fade">
+                <div class="txt">
+                    <h1>C-B</h1>
+                    <p class="p">Somos C-B<br>t camino a bajos gastos </p>
+                </div>
+                <img src="/img/slider1.jpg" style="width: 100%; height: 100%;">
+            </div>
+            
+            <div class="myslide fade">
+                <div class="txt">
+                    <h1>C-B</h1>
+                    <p class="p">Con alimentos<br>de alta calidad</p>
+                </div>
+                <img src="/img/slider1.jpg" style="width: 100%; height: 100%;">
+            </div>
+    
+            <div class="myslide fade">
+                <div class="txt">
+                    <h1>C-B</h1>
+                    <p class="p">Esto es<br>New york bro</p>
+                </div>
+                <img src="/img/slider3.jpg" style="width: 100%; height: 100%;">
+            </div>
+            
+            <div class="myslide fade">
+                <div class="txt">
+                    <h1>C-B</h1>
+                    <p class="p">Tenemos Lo que necesitas<br>Gran Variedad de Productos y Mucho Más</p>
+                </div>
+                <img src="/img/slider4.jpg" style="width: 100%; height: 100%;">
+            </div>
+            
+            <div class="myslide fade">
+                <div class="txt">
+                    <h1>C-B</h1>
+                    <p>Con precios elevados<br>Y escases total XD</p>
+                </div>
+                <img src="/img/slider5.jpg" style="width: 100%; height: 100%;">
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+              <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            
+            <div class="dotsbox" style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span>
+            </div>
+        </div>
+        
+        <a name="nosotros"></a>
+        <section class="about" id="about" >
+            <div class="about-img">
+                <img src="/img/logo.png">
+            </div>
+    
+            <div class="about-text">
+                <h2> Acerca de <span>Nosotros</span></h2>
+                <br>
+                <p class="nosotros_p">La empresa/supermercado C-B, fundada en el 2023 por Cristian Barajas es un proyecto que se realizo para poder dar empleos y buenos precios a nuestros clientes <br> con mercancia importada y tambien nacional nos ubicamos en Santa Teresa-Tachira tambien contamos con servicios de delivery.<br>
+                Nro. decontacto: +58 424-1234567
+                </p>
+            </div>
+        </section>
+    
+      
+        <a name="servicios"></a>
+        <section class="services" id="services">
+            <div class="main-text">
+                <p>Somos Expertos </p>
+                <h2><span>Nuestros</span> Servicios</h2>
+            </div>
+    
+            <div class="services-content">
+                <div class="box">
+                    <div class="s-icons">
+                       
+                    </div>
+                    <h3>Viveres </h3>
+                    <p>Trabajamos con todo tipo de viveres para llenar tu hogar con alimentos para tu familia aun muy buen precio. </p>
+                    <a href="#">Mas info..</a>
+                </div>
+    
+                <div class="box">
+                    <div class="s-icons">
+                   
+                    </div>
+                    <h3>Carnes</h3>
+                    <p>Trabajamos con muy buenos cortes de carnes para comidas casuales o unos bestiales asados para compartir en familia </p>
+                    <a href="#">Mas info..</a>
+                </div>
+    
+                <div class="box">
+                    <div class="s-icons">
+                    </div>
+                    <h3>Licores</h3>
+                    <p>Tenemos licores de todos los tipos impulsando la cocteleria contamos desde rones hasta tequila y vinos</p>
+                    <a href="#">Mas info..</a>
+                </div>
+    
+            </div>
+        </section>
+    
+        <a name="diseños"></a>
+        <section class="portfolio" id="portfolio">
+            <div class="main-text">
+                <p>Galería</p>
+                <h2><span>Algunos</span>de nuestros productos</h2>
+            </div>
+    
+            <div class="portfolio-content">
+                <div class="row">
+                    <img src="/img/viveres.jpg"  style="width: 100%; height: 100%;">
+                    <div class="layer">
+                        <h5>Viveres</h5>
+                        <p>Para compra virtual dar click aqui.</p>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <img src="/img/carnes1.jpg"  style="width: 100%; height: 100%;">
+                    <div class="layer">
+                        <h5>Carnes</h5>
+                        <p>Todos los cortes que desees solo aqui.</p>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <img src="/img/limpieza.png"  style="width: 100%; height: 100%;">
+                    <div class="layer">
+                        <h5>limpieza</h5>
+                        <p>Todo lo que necesites para poder mantener limpio tu hogar.</p>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <img src="/img/cocteleria.jpg"  style="width: 100%; height: 100%;">
+                    <div class="layer">
+                        <h5>Cocteleria</h5>
+                        <p>Todos los utencilios para aprender este arte y mas.</p>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <img src="/img/rones.jpg"  style="width: 100%; height: 100%;">
+                    <div class="layer">
+                        <h5>Alcohol</h5>
+                        <p>Multiple variedad de licores para pasar bien el rato y matar la sed.</p>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <img src="/img/juguetes.jpg"  style="width: 100%; height: 100%;">
+                    <div class="layer">
+                        <h5>Juguetes/h5>
+                        <p>Para los mas chicos tambien pensamos en ellos y aqui podras encontrar muchos juguetes.</p>
+                    </div>
+                </div>
+    
+            </div>
+        </section>
+    
+        <section class="contact" id="contact" >
+    
+
+            <div class="contact-text">
+                <h2>¡<span>Contáctenos</span>!</h2>
+            </div>
+
+            <div class="contact-form">
+                <form action="/message" method="post">
+                    <input type="name" placeholder="Nombre" name="name" required >
+                    <input type="email" placeholder="Email" name="email" required >
+                    <input type="number" placeholder="Número de Telefono" name="telefono" required>
+                    <textarea cols="35" rows="10" placeholder="Mensaje..." name="message" required></textarea>
+                    <input type="submit" value="Enviar Mensaje" class="submit">
+                </form>
+            </div>
+        </section>
+        </section>
+
+    </main>
 
 
 <%-include("partials/footer",{
-    js:[]
+    js:["index"]
 })%>
